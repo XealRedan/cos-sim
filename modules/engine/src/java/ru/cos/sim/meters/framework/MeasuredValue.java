@@ -40,7 +40,9 @@ public abstract class MeasuredValue<T extends MeasuredValue<T>> extends Number i
 		} catch (CloneNotSupportedException e) {
 			throw new RuntimeException(e);
 		}
-		result.value = new Double(value.doubleValue());
+
+//		result.value = value.doubleValue();
+		((MeasuredValue<T>)result).value = new Double(value.doubleValue());
 		return result;
 	}
 
