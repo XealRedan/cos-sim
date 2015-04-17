@@ -91,9 +91,8 @@ public class GraphicInterface extends JFrame {
         LWJGLCanvas canvas = null;
         private Preferences pref;      
         private double dividerLocation = -1;
-        private javax.swing.ImageIcon playIcon = new javax.swing.ImageIcon(getClass().getResource("/icons/start_task.gif"));
-        private javax.swing.ImageIcon pauseIcon = new javax.swing.ImageIcon(getClass().getResource("/icons/suspend_co.gif"));
-        
+        private javax.swing.ImageIcon playIcon = new javax.swing.ImageIcon(getClass().getClassLoader().getResource("icons/start_task.gif"));
+        private javax.swing.ImageIcon pauseIcon = new javax.swing.ImageIcon(getClass().getClassLoader().getResource("icons/suspend_co.gif"));
         
         private int width = 200;
         private int height = 200;
