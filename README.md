@@ -1,5 +1,7 @@
 # cos-sim
 This is a fork of the traffic simulator that can be found at http://code.google.com/p/cos-sim
+
+## Goal
 The objective is to extend the simulator in order to:
 
 1. extend choices of driving models
@@ -7,8 +9,8 @@ The objective is to extend the simulator in order to:
 3. allow usage of cooperative intersection management
 4. implement a deadlock-free policy for the road network
 
-# Current work
+## Current work
 Implementation of different driving models
 
-# Notes
+## Notes
 Automatically exported from code.google.com/p/cos-sim
