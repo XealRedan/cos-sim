@@ -37,6 +37,8 @@ public class CompositeDriver extends AbstractDriver {
 	protected WayJoinCase wayJoinCase = new WayJoinCase(this);
 	
 	public CompositeDriver() {
+		this.routerCase = new RouterCase(this);
+		this.mandatoryLaneChangingCase = new MandatoryLaneChangingCase(this);
 		this.perceptor = new Perceptor(this);
 	}
 

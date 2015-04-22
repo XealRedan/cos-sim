@@ -39,6 +39,8 @@ public class CompositeRTACCDriver extends AbstractDriver {
 	protected WayJoinCase wayJoinCase = new WayJoinCase(this);
 
 	public CompositeRTACCDriver() {
+		this.routerCase = new RouterCase(this);
+		this.mandatoryLaneChangingCase = new MandatoryLaneChangingCase(this);
 		this.perceptor = new Perceptor(this);
 	}
 
