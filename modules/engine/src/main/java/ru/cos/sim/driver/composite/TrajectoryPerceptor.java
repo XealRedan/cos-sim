@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Vector;
 
 import ru.cos.cs.lengthy.Observation;
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.road.RoadTrajectory;
 import ru.cos.sim.road.objects.RoadObject;
 
@@ -20,9 +21,9 @@ public class TrajectoryPerceptor {
 
 	private float backVisibleRange = 100.f;
 	
-	private CompositeDriver driver;
+	private AbstractDriver driver;
 
-	public TrajectoryPerceptor(CompositeDriver driver) {
+	public TrajectoryPerceptor(AbstractDriver driver) {
 		this.driver = driver;
 	}
 

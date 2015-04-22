@@ -3,6 +3,7 @@
  */
 package ru.cos.sim.driver.composite.framework;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriver;
 
 /**
@@ -11,9 +12,9 @@ import ru.cos.sim.driver.composite.CompositeDriver;
  */
 public abstract class AbstractBehaviorCase extends BehaviorCase {
 
-	protected CompositeDriver driver;
+	protected AbstractDriver driver;
 	
-	public AbstractBehaviorCase(CompositeDriver driver){
+	public AbstractBehaviorCase(AbstractDriver driver){
 		this.driver = driver;
 	}
 

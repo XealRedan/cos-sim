@@ -3,6 +3,7 @@
  */
 package ru.cos.sim.driver.composite.cases;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.cases.utils.IDMCalculator;
 import ru.cos.sim.driver.composite.framework.AbstractBehaviorCase;
 import ru.cos.sim.driver.composite.framework.Priority;
@@ -26,7 +27,7 @@ public class ForthcomingNode extends AbstractBehaviorCase {
 	
 	private IDMCalculator idmCalculator;
 
-	public ForthcomingNode(CompositeDriver driver) {
+	public ForthcomingNode(AbstractDriver driver) {
 		super(driver);
 		this.idmCalculator = new IDMCalculator();
 	}

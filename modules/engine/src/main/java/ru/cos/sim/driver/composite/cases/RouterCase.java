@@ -9,6 +9,7 @@ import ru.cos.cs.lengthy.Fork;
 import ru.cos.cs.lengthy.Join;
 import ru.cos.cs.lengthy.Lengthy;
 import ru.cos.cs.lengthy.Router;
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.DriverException;
 import ru.cos.sim.driver.RoadRoute;
 import ru.cos.sim.driver.composite.CompositeDriver;
@@ -41,7 +42,7 @@ public class RouterCase extends AbstractBehaviorCase implements Router {
 	protected boolean onLink = false;
 	protected boolean onNode = false;
 
-	public RouterCase(CompositeDriver driver) {
+	public RouterCase(AbstractDriver driver) {
 		super(driver);
 	}
 
@@ -151,8 +152,6 @@ public class RouterCase extends AbstractBehaviorCase implements Router {
 	 * Because route may have loops and one link id may encountered several times in the list, 
 	 * therefore it must be specified from which place on the route start to search next link id.
 	 * @param prevLinkId id of the link that is predecessor of next one in the route
-	 * @param startFromIndex index of the link in the route's link list from which start to search,
-	 * when it is needed to start from very beginning of the route, then specify any negative value
 	 * @return next link id according to the route
 	 */
 	public int getNextLinkId(int prevLinkId) {

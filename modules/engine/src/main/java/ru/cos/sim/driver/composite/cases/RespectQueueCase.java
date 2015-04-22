@@ -6,6 +6,7 @@ package ru.cos.sim.driver.composite.cases;
 import java.util.List;
 
 import ru.cos.cs.lengthy.Observation;
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriver;
 import ru.cos.sim.driver.composite.CompositeDriverParameters;
 import ru.cos.sim.driver.composite.Perception;
@@ -41,7 +42,7 @@ public class RespectQueueCase extends AbstractBehaviorCase {
 	
 	private IDMCalculator idmCalculator;
 
-	public RespectQueueCase(CompositeDriver driver) {
+	public RespectQueueCase(AbstractDriver driver) {
 		super(driver);
 		this.idmCalculator = new IDMCalculator();
 	}

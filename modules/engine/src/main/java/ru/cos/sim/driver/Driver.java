@@ -19,7 +19,11 @@ public interface Driver extends Router {
 		/**
 		 * Composite driver.
 		 */
-		Composite, 
+		Composite,
+		/**
+		 * RT-ACC composite driver
+		 */
+		RtAccComposite,
 		/**
 		 * Intelligent driver.
 		 */

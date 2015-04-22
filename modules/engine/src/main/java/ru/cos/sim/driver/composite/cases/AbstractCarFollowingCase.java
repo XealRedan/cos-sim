@@ -5,6 +5,7 @@ package ru.cos.sim.driver.composite.cases;
 
 import static ru.cos.sim.driver.composite.framework.Priority.CarFollowing;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriver;
 import ru.cos.sim.driver.composite.Perception;
 import ru.cos.sim.driver.composite.cases.utils.AccelerationModelCalculator;
@@ -25,7 +26,7 @@ public abstract class AbstractCarFollowingCase<AccelerationModelParameters> exte
 	
 	protected AccelerationModelCalculator<AccelerationModelParameters> accelerationModelCalculator;
 
-	public AbstractCarFollowingCase(CompositeDriver driver) {
+	public AbstractCarFollowingCase(AbstractDriver driver) {
 		super(driver);
 	}
 	

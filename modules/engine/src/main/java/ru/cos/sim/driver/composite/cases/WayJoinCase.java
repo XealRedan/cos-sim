@@ -8,6 +8,7 @@ import java.util.Set;
 
 import ru.cos.cs.lengthy.Observation;
 import ru.cos.cs.lengthy.RegularLengthy;
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriver;
 import ru.cos.sim.driver.composite.CompositeDriverParameters;
 import ru.cos.sim.driver.composite.Perception;
@@ -32,7 +33,7 @@ public class WayJoinCase extends AbstractBehaviorCase {
 	
 	private IDMCalculator idmCalculator;
 
-	public WayJoinCase(CompositeDriver driver) {
+	public WayJoinCase(AbstractDriver driver) {
 		super(driver);
 		this.idmCalculator = new IDMCalculator();
 	}

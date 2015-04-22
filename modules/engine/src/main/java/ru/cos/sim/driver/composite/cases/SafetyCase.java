@@ -3,6 +3,7 @@
  */
 package ru.cos.sim.driver.composite.cases;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriver;
 import ru.cos.sim.driver.composite.Perception;
 import ru.cos.sim.driver.composite.Percepts;
@@ -24,7 +25,7 @@ public class SafetyCase extends AbstractBehaviorCase {
 
 	private HandRange safeTurns = new HandRange();
 	
-	public SafetyCase(CompositeDriver driver) {
+	public SafetyCase(AbstractDriver driver) {
 		super(driver);
 	}
 

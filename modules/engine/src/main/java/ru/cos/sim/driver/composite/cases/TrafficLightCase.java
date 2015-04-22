@@ -7,6 +7,7 @@ import java.util.List;
 
 import ru.cos.sim.agents.tlns.TrafficLight;
 import ru.cos.sim.agents.tlns.TrafficLightSignal;
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriver;
 import ru.cos.sim.driver.composite.CompositeDriverParameters;
 import ru.cos.sim.driver.composite.Perception;
@@ -26,7 +27,7 @@ public class TrafficLightCase extends AbstractBehaviorCase {
 	
 	private IDMCalculator idmCalculator;
 
-	public TrafficLightCase(CompositeDriver driver) {
+	public TrafficLightCase(AbstractDriver driver) {
 		super(driver);
 		this.idmCalculator = new IDMCalculator();
 	}

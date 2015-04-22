@@ -5,6 +5,7 @@ package ru.cos.sim.driver.composite.cases;
 
 import java.util.Set;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.framework.RectangleCCRange;
 import ru.cos.sim.road.link.Lane;
 import ru.cos.sim.road.node.NodeFork;
@@ -36,7 +37,7 @@ public class MandatoryLaneChangingCase extends AbstractBehaviorCase {
 	/**
 	 * @param driver
 	 */
-	public MandatoryLaneChangingCase(CompositeDriver driver) {
+	public MandatoryLaneChangingCase(AbstractDriver driver) {
 		super(driver);
 	}
 

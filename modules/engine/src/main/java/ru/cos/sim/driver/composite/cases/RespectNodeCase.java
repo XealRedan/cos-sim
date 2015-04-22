@@ -7,6 +7,7 @@ import java.util.List;
 
 import ru.cos.cs.lengthy.Observation;
 import ru.cos.cs.lengthy.objects.Point;
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriverParameters;
 import ru.cos.sim.driver.composite.Perception;
 import ru.cos.sim.driver.composite.cases.utils.IDMCalculator;
@@ -38,7 +39,7 @@ public class RespectNodeCase extends AbstractBehaviorCase {
 	
 	private IDMCalculator idmCalculator;
 
-	public RespectNodeCase(CompositeDriver driver) {
+	public RespectNodeCase(AbstractDriver driver) {
 		super(driver);
 		idmCalculator = new IDMCalculator();
 	}

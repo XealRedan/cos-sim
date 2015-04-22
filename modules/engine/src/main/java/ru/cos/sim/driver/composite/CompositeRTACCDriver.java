@@ -8,24 +8,26 @@ import ru.cos.cs.lengthy.Join;
 import ru.cos.cs.lengthy.Lengthy;
 import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.cases.*;
+import ru.cos.sim.driver.composite.framework.CCRange;
 import ru.cos.sim.driver.composite.framework.ControlCommand;
 import ru.cos.sim.driver.composite.framework.RectangleCCRange;
 import ru.cos.sim.driver.route.RouteProvider;
 import ru.cos.sim.road.link.Lane;
-import ru.cos.sim.driver.composite.framework.CCRange;
 import ru.cos.sim.utils.Hand;
 import ru.cos.sim.utils.Pair;
 
 /**
- * Composite Driver.
- * @author zroslaw
+ * Composite RT-ACC Driver.
+ * @author alombard
  */
-public class CompositeDriver extends AbstractDriver {
+public class CompositeRTACCDriver extends AbstractDriver {
+
+	protected CompositeRTACCDriverParameters parameters;
 
 	protected Perceptor perceptor;
 
 	// driver behavior cases
-	protected AbstractCarFollowingCase cfCase = new IDMCarFollowingCase(this);
+	protected AbstractCarFollowingCase cfCase = new RTACCCarFollowingCase(this);
 	protected LaneAlignCase laneAlignCase = new LaneAlignCase(this);
 	protected DesiredLaneChangingCase desiredLaneChangingCase = new DesiredLaneChangingCase(this);
 	protected SafetyCase safetyCase = new SafetyCase(this);
@@ -35,8 +37,8 @@ public class CompositeDriver extends AbstractDriver {
 	protected SpeedLimitCase speedLimitCase = new SpeedLimitCase(this);
 	protected RespectNodeCase respectNodeCase = new RespectNodeCase(this);
 	protected WayJoinCase wayJoinCase = new WayJoinCase(this);
-	
-	public CompositeDriver() {
+
+	public CompositeRTACCDriver() {
 		this.perceptor = new Perceptor(this);
 	}
 
@@ -106,10 +108,14 @@ public class CompositeDriver extends AbstractDriver {
 
 	@Override
 	public final DriverType getDriverType() {
-		return DriverType.Composite;
+		return DriverType.RtAccComposite;
 	}
 
-	public void setParameters(CompositeDriverParameters parameters) {
+	public CompositeDriverParameters getParameters() {
+		return parameters;
+	}
+
+	public void setParameters(CompositeRTACCDriverParameters parameters) {
 		this.parameters = parameters;
 	}
 
@@ -120,4 +126,5 @@ public class CompositeDriver extends AbstractDriver {
 	public boolean isTurnSafe(Hand turnHand) {
 		return this.safetyCase.getSafeTurns().contains(turnHand);
 	}
+
 }

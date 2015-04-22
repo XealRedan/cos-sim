@@ -3,6 +3,7 @@
  */
 package ru.cos.sim.driver.composite.cases;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriver;
 import ru.cos.sim.driver.composite.Perception;
 import ru.cos.sim.driver.composite.Percepts;
@@ -24,7 +25,7 @@ import static ru.cos.sim.driver.composite.framework.Priority.CarFollowing;
  */
 public class RTACCCarFollowingCase extends AbstractCarFollowingCase<RTACCDriverParameters> {
 
-	public RTACCCarFollowingCase(CompositeDriver driver) {
+	public RTACCCarFollowingCase(AbstractDriver driver) {
 		super(driver);
 		this.accelerationModelCalculator = new RTACCCalculator();
 	}

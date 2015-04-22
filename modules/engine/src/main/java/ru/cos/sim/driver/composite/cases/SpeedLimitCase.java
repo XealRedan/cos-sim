@@ -5,6 +5,7 @@ package ru.cos.sim.driver.composite.cases;
 
 import java.util.List;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.framework.RectangleCCRange;
 import ru.cos.sim.driver.data.IDMDriverParameters;
 import ru.cos.sim.road.objects.Sign;
@@ -43,7 +44,7 @@ public class SpeedLimitCase extends AbstractBehaviorCase {
 	
 	private IDMCalculator idmCalculator;
 
-	public SpeedLimitCase(CompositeDriver driver) {
+	public SpeedLimitCase(AbstractDriver driver) {
 		super(driver);
 		this.idmCalculator = new IDMCalculator();
 	}

@@ -19,7 +19,7 @@ public class RTACCCalculator implements AccelerationModelCalculator<RTACCDriverP
 	private float maxAcceleration = 2f; // 4 m/s^2
 	private float maxSpeed = 15; //
 	private float minDistance = 2.f; // 2m
-	private float comfortDeceleration = 2.f; // 2 m/s^2
+	private float comfortDeceleration = -2.f; // 2 m/s^2
 	private float maxBraking = -8.f; // 8 m/s^2
 	private float tau = 2;	// 2s
 	

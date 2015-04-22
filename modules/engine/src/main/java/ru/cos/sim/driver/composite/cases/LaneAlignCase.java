@@ -6,6 +6,7 @@ package ru.cos.sim.driver.composite.cases;
 import java.util.HashSet;
 import java.util.Set;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.CompositeDriver;
 import ru.cos.sim.driver.composite.framework.AbstractBehaviorCase;
 import ru.cos.sim.driver.composite.framework.RectangleCCRange;
@@ -22,7 +23,7 @@ import ru.cos.sim.utils.Hand;
 public class LaneAlignCase extends AbstractBehaviorCase {
 
 	
-	public LaneAlignCase(CompositeDriver driver) {
+	public LaneAlignCase(AbstractDriver driver) {
 		super(driver);
 	}
 

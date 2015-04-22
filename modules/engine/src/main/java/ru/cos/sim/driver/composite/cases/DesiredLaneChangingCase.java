@@ -6,6 +6,7 @@ package ru.cos.sim.driver.composite.cases;
 import java.util.HashSet;
 import java.util.Set;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.driver.composite.cases.utils.MOBILCalculator;
 import ru.cos.sim.driver.composite.cases.utils.MOBILDriverParameters;
 import ru.cos.sim.driver.composite.framework.AbstractBehaviorCase;
@@ -28,7 +29,7 @@ public class DesiredLaneChangingCase extends AbstractBehaviorCase {
 	
 	protected MOBILCalculator mobilCalculator;
 
-	public DesiredLaneChangingCase(CompositeDriver driver) {
+	public DesiredLaneChangingCase(AbstractDriver driver) {
 		super(driver);
 		mobilCalculator = new MOBILCalculator();
 	}

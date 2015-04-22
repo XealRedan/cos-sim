@@ -113,10 +113,10 @@
         <tm:CompositeDriver>
           <tm:destinationNodeId>0</tm:destinationNodeId>
           <tm:Parameters>
-            <tm:maxSpeed>25</tm:maxSpeed>
-            <tm:maxAcceleration>3</tm:maxAcceleration>
-            <tm:comfortDeceleration>7</tm:comfortDeceleration>
-            <tm:minDistance>2</tm:minDistance>
+            <tm:idmMaxSpeed>25</tm:idmMaxSpeed>
+            <tm:idmMaxAcceleration>3</tm:idmMaxAcceleration>
+            <tm:idmComfortDeceleration>7</tm:idmComfortDeceleration>
+            <tm:idmMinDistance>2</tm:idmMinDistance>
             <tm:desiredHeadwayTime>2</tm:desiredHeadwayTime>
             <tm:abruptness>4</tm:abruptness>
             <tm:politeness>0.5</tm:politeness>

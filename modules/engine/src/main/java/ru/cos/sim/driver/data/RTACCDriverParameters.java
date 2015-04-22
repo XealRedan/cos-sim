@@ -27,6 +27,8 @@ public interface RTACCDriverParameters {
 
 	public void setRtAccMinimalGap(float rtAccMinimalGap);
 
+	public void setRtAccDesiredBraking(float rtAccDesiredBraking);
+
 	public void setRtAccMaxBraking(float rtAccMaxBraking);
 
 	public void setRtAccTau(float rtAccTau);

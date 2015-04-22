@@ -212,10 +212,10 @@
 										<Route>1,2,3,4,5,6</Route>
 										<Parameters>
 											<!-- IDM parameters -->
-											<maxSpeed>15.0</maxSpeed>
-											<maxAcceleration>4.0</maxAcceleration>
-											<comfortDeceleration>2.0</comfortDeceleration>
-											<minDistance>2.0</minDistance>
+											<idmMaxSpeed>15.0</idmMaxSpeed>
+											<idmMaxAcceleration>4.0</idmMaxAcceleration>
+											<idmComfortDeceleration>2.0</idmComfortDeceleration>
+											<idmMinDistance>2.0</idmMinDistance>
 											<desiredHeadwayTime>2.0</desiredHeadwayTime>
 											<abruptness>4.0</abruptness>
 											<!-- MOBIL parameters -->
@@ -243,10 +243,10 @@
 					<Route>1,2,3,4,5,6</Route>
 					<Parameters>
 						<!-- IDM parameters -->
-						<maxSpeed>15.0</maxSpeed>
-						<maxAcceleration>4.0</maxAcceleration>
-						<comfortDeceleration>2.0</comfortDeceleration>
-						<minDistance>2.0</minDistance>
+						<idmMaxSpeed>15.0</idmMaxSpeed>
+						<idmMaxAcceleration>4.0</idmMaxAcceleration>
+						<idmComfortDeceleration>2.0</idmComfortDeceleration>
+						<idmMinDistance>2.0</idmMinDistance>
 						<desiredHeadwayTime>2.0</desiredHeadwayTime>
 						<abruptness>4.0</abruptness>
 						<!-- MOBIL parameters -->

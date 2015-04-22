@@ -1140,10 +1140,10 @@
 				</annotation>
 				<complexType>
 					<sequence>
-						<element name="maxSpeed" type="tns:positiveFloat" />
-						<element name="maxAcceleration" type="tns:positiveFloat" />
-						<element name="comfortDeceleration" type="tns:positiveFloat" />
-						<element name="minDistance" type="tns:positiveFloat" />
+						<element name="idmMaxSpeed" type="tns:positiveFloat" />
+						<element name="idmMaxAcceleration" type="tns:positiveFloat" />
+						<element name="idmComfortDeceleration" type="tns:positiveFloat" />
+						<element name="idmMinDistance" type="tns:positiveFloat" />
 						<element name="desiredHeadwayTime" type="tns:positiveFloat" />
 						<element name="abruptness" type="tns:positiveFloat" />
 						<element name="politeness" type="float" />

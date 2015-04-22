@@ -3,6 +3,7 @@
  */
 package ru.cos.sim.driver.composite;
 
+import ru.cos.sim.driver.AbstractDriver;
 import ru.cos.sim.road.link.Lane;
 import ru.cos.sim.road.RoadTrajectory;
 
@@ -20,7 +21,7 @@ public class Perceptor {
 	 * Create perceptor on the base of driver instance
 	 * @param driver
 	 */
-	public Perceptor(CompositeDriver driver) {
+	public Perceptor(AbstractDriver driver) {
 //		this.driver = driver;
 		this.trajectoryPerceptor = new TrajectoryPerceptor(driver);
 	}
