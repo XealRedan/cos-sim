@@ -6,7 +6,7 @@ package ru.cos.sim.driver.factories;
 import ru.cos.cs.agents.framework.Universe;
 import ru.cos.sim.driver.Driver;
 import ru.cos.sim.driver.data.CompositeDriverData;
-import ru.cos.sim.driver.data.CompositeRtAccXDriverData;
+import ru.cos.sim.driver.data.CompositeRtAccDriverData;
 import ru.cos.sim.driver.data.DriverData;
 import ru.cos.sim.driver.DriverException;
 
@@ -24,7 +24,7 @@ public class DriverFactory {
 			driver = CompositeDriverFactory.createDriver((CompositeDriverData) driverData, universe);
 			break;
 		case RtAccComposite:
-			driver = CompositeRtAccXDriverFactory.createDriver((CompositeRtAccXDriverData) driverData, universe);
+			driver = CompositeRtAccDriverFactory.createDriver((CompositeRtAccDriverData) driverData, universe);
 			break;
 		default: throw new DriverException("Unable to create driver instance, unexpected driver type"+driverData.getDriverType());
 		}

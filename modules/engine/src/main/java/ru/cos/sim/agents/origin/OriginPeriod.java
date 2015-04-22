@@ -8,7 +8,7 @@ import java.util.Set;
 
 
 import ru.cos.sim.driver.Driver;
-import ru.cos.sim.driver.composite.CompositeRtAccXDriver;
+import ru.cos.sim.driver.composite.CompositeRtAccDriver;
 import ru.cos.sim.vehicle.VehicleFactory;
 import ru.cos.sim.driver.composite.CompositeDriver;
 import ru.cos.sim.engine.RoadNetworkUniverse;
@@ -94,7 +94,7 @@ public class OriginPeriod {
 				int destinationNodeId = destinations.getArbitraryElement();
 				compositeDriver.setDestinationNodeId(destinationNodeId);
 			} else if (driver.getDriverType() == Driver.DriverType.RtAccComposite) {
-				CompositeRtAccXDriver compositeRtAccDriver = (CompositeRtAccXDriver)driver;
+				CompositeRtAccDriver compositeRtAccDriver = (CompositeRtAccDriver)driver;
 				int destinationNodeId = destinations.getArbitraryElement();
 				compositeRtAccDriver.setDestinationNodeId(destinationNodeId);
 			}
