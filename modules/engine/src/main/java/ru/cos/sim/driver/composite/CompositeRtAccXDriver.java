@@ -12,7 +12,6 @@ import ru.cos.sim.driver.composite.framework.CCRange;
 import ru.cos.sim.driver.composite.framework.ControlCommand;
 import ru.cos.sim.driver.composite.framework.RectangleCCRange;
 import ru.cos.sim.driver.route.RouteProvider;
-import ru.cos.sim.road.link.Lane;
 import ru.cos.sim.utils.Hand;
 import ru.cos.sim.utils.Pair;
 
@@ -20,14 +19,14 @@ import ru.cos.sim.utils.Pair;
  * Composite RT-ACC Driver.
  * @author alombard
  */
-public class CompositeRTACCDriver extends AbstractDriver {
+public class CompositeRtAccXDriver extends AbstractDriver {
 
-	protected CompositeRTACCDriverParameters parameters;
+	protected CompositeRtAccXDriverParameters parameters;
 
 	protected Perceptor perceptor;
 
 	// driver behavior cases
-	protected AbstractCarFollowingCase cfCase = new RTACCCarFollowingCase(this);
+	protected AbstractCarFollowingCase cfCase = new RtAccXCarFollowingCase(this);
 	protected LaneAlignCase laneAlignCase = new LaneAlignCase(this);
 	protected DesiredLaneChangingCase desiredLaneChangingCase = new DesiredLaneChangingCase(this);
 	protected SafetyCase safetyCase = new SafetyCase(this);
@@ -38,7 +37,7 @@ public class CompositeRTACCDriver extends AbstractDriver {
 	protected RespectNodeCase respectNodeCase = new RespectNodeCase(this);
 	protected WayJoinCase wayJoinCase = new WayJoinCase(this);
 
-	public CompositeRTACCDriver() {
+	public CompositeRtAccXDriver() {
 		this.routerCase = new RouterCase(this);
 		this.mandatoryLaneChangingCase = new MandatoryLaneChangingCase(this);
 		this.perceptor = new Perceptor(this);
@@ -117,7 +116,7 @@ public class CompositeRTACCDriver extends AbstractDriver {
 		return parameters;
 	}
 
-	public void setParameters(CompositeRTACCDriverParameters parameters) {
+	public void setParameters(CompositeRtAccXDriverParameters parameters) {
 		this.parameters = parameters;
 	}
 

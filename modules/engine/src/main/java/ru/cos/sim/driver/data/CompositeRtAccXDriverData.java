@@ -4,7 +4,7 @@
 package ru.cos.sim.driver.data;
 
 import ru.cos.sim.driver.Driver.DriverType;
-import ru.cos.sim.driver.composite.CompositeRtAccDriverParameters;
+import ru.cos.sim.driver.composite.CompositeRtAccXDriverParameters;
 
 import java.util.List;
 
@@ -13,21 +13,21 @@ import java.util.List;
  * 
  * @author alombard
  */
-public class CompositeRtAccDriverData extends DriverData {
+public class CompositeRtAccXDriverData extends DriverData {
 
 	protected List<Integer> route;
 	
 	protected int destinationNodeId;
 
-	public CompositeRtAccDriverParameters getParameters() {
+	public CompositeRtAccXDriverParameters getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(CompositeRtAccDriverParameters parameters) {
+	public void setParameters(CompositeRtAccXDriverParameters parameters) {
 		this.parameters = parameters;
 	}
 
-	protected CompositeRtAccDriverParameters parameters;
+	protected CompositeRtAccXDriverParameters parameters;
 	
 	@Override
 	public final DriverType getDriverType() {

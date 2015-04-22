@@ -4,8 +4,7 @@
 package ru.cos.sim.driver.composite.cases.utils;
 
 import ru.cos.sim.driver.composite.Perception;
-import ru.cos.sim.driver.data.IDMDriverParameters;
-import ru.cos.sim.driver.data.RTACCDriverParameters;
+import ru.cos.sim.driver.data.RtAccXDriverParameters;
 import ru.cos.sim.road.objects.BlockRoadObject;
 import ru.cos.sim.road.objects.RoadObject;
 import ru.cos.sim.vehicle.RegularVehicle;
@@ -15,7 +14,7 @@ import ru.cos.sim.vehicle.RegularVehicle;
  * @author alombard
  */
 // TODO Change this class to use the RT-ACC model
-public class RTACCCalculator implements AccelerationModelCalculator<RTACCDriverParameters> {
+public class RtAccXCalculator implements AccelerationModelCalculator<RtAccXDriverParameters> {
 	private float maxAcceleration = 2f; // 4 m/s^2
 	private float maxSpeed = 15; //
 	private float minDistance = 2.f; // 2m
@@ -30,7 +29,7 @@ public class RTACCCalculator implements AccelerationModelCalculator<RTACCDriverP
 	// precompiled values
 	private float denominator = (float) (2*Math.sqrt(maxAcceleration*comfortDeceleration));
 
-	public void init(RTACCDriverParameters driver) {
+	public void init(RtAccXDriverParameters driver) {
 		maxAcceleration = driver.getRtAccMaxAcceleration();
 		maxSpeed = driver.getRtAccMaxSpeed();
 		minDistance = driver.getRtAccMinimalGap();

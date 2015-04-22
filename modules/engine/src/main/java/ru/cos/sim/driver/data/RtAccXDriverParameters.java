@@ -7,7 +7,7 @@ package ru.cos.sim.driver.data;
  * Driver parameters of RT-ACC model
  * @author alombard
  */
-public interface RTACCDriverParameters {
+public interface RtAccXDriverParameters {
 
 	public float getRtAccMaxAcceleration();
 
