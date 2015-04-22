@@ -3,24 +3,25 @@
  */
 package ru.cos.sim.driver.composite.cases.utils;
 
-import ru.cos.sim.driver.data.IDMDriverParameters;
 import ru.cos.sim.driver.composite.Perception;
+import ru.cos.sim.driver.data.IDMDriverParameters;
+import ru.cos.sim.driver.data.RTACCDriverParameters;
 import ru.cos.sim.road.objects.BlockRoadObject;
 import ru.cos.sim.road.objects.RoadObject;
 import ru.cos.sim.vehicle.RegularVehicle;
 
 /**
- * Calculation of acceleration according to IDM model.
- * {@link http://www.vwi.tu-dresden.de/~treiber/MicroApplet/IDM.html}
- * @author zroslaw
+ * Calculation of acceleration according to RT-ACC model.
+ * @author alombard
  */
-public class IDMCalculator implements AccelerationModelCalculator<IDMDriverParameters> {
+// TODO Change this class to use the RT-ACC model
+public class RTACCCalculator implements AccelerationModelCalculator<RTACCDriverParameters> {
 	private float maxAcceleration = 2f; // 4 m/s^2
 	private float maxSpeed = 15; //
 	private float minDistance = 2.f; // 2m
-	private float desiredTimeHeadway = 2.f; // 2 seconds
 	private float comfortDeceleration = 2.f; // 2 m/s^2
-	private float abruptness = 4.f; // 4
+	private float maxBraking = -8.f; // 8 m/s^2
+	private float tau = 2;	// 2s
 	
 	private float speed = 0;
 	private float frontVehicleSpeed = 0;
@@ -29,13 +30,13 @@ public class IDMCalculator implements AccelerationModelCalculator<IDMDriverParam
 	// precompiled values
 	private float denominator = (float) (2*Math.sqrt(maxAcceleration*comfortDeceleration));
 
-	public void init(IDMDriverParameters driver) {
-		maxAcceleration = driver.getIdmMaxAcceleration();
-		maxSpeed = driver.getIdmMaxSpeed();
-		minDistance = driver.getIdmMinimalGap();
-		desiredTimeHeadway = driver.getIdmDesiredHeadwayTime();
-		comfortDeceleration = driver.getIdmMaxAcceleration();
-		abruptness = driver.getIdmAbruptness();
+	public void init(RTACCDriverParameters driver) {
+		maxAcceleration = driver.getRtAccMaxAcceleration();
+		maxSpeed = driver.getRtAccMaxSpeed();
+		minDistance = driver.getRtAccMinimalGap();
+		comfortDeceleration = driver.getRtAccDesiredBraking();
+		maxBraking = driver.getRtAccMaxBraking();
+		tau = driver.getRtAccTau();
 	}
 
 	public float calculate(RegularVehicle vehicle, Perception frontVehicle) {
@@ -46,31 +47,35 @@ public class IDMCalculator implements AccelerationModelCalculator<IDMDriverParam
 		setDistance(frontVehicle.getDistance());
 		return calculate();
 	}
-	
-	
+
 	/**
 	 * Calculate acceleration
 	 * @return
 	 */
 	public float calculate(){
 		float result=0;
-		
-		float safetyDistance = calculateSafeDistance();
-		
-		result =  desiredTimeHeadway*
-				 (1 - (float)Math.pow(speed/maxSpeed, abruptness)
-				    - (float)Math.pow(safetyDistance/distance, 2));
+
+		final double underSquareRoot =
+				(this.maxBraking * this.comfortDeceleration * Math.pow(this.tau, 2) +
+						4 * this.maxBraking * this.speed * this.tau +
+						4 * Math.pow(this.frontVehicleSpeed, 2) -
+						8 * this.maxBraking * (this.distance - this.minDistance))
+				/ (4 * this.maxBraking * this.comfortDeceleration);
+
+		if(underSquareRoot >= 0) {
+			final double as = Math.sqrt(underSquareRoot);
+
+			final double ar =
+					(this.comfortDeceleration * this.tau - 2 * this.speed - 2 * this.comfortDeceleration * as) /
+							(2 * this.tau);
+
+			result = (float)ar;
+		} else {
+			// TODO Implement multi-level braking
+			result = this.maxBraking;
+		}
+
 		return result;
-	}
-	
-	protected void init(){
-		this.denominator = (float) (2*Math.sqrt(maxAcceleration*comfortDeceleration));
-	}
-	
-	public float calculateSafeDistance(){
-		float dynamicPart = speed*desiredTimeHeadway+
-		   speed*(speed-frontVehicleSpeed)/denominator;
-		return minDistance+dynamicPart;
 	}
 
 	/**
@@ -95,10 +100,10 @@ public class IDMCalculator implements AccelerationModelCalculator<IDMDriverParam
 	}
 
 	/**
-	 * @return the desiredTimeHeadway
+	 * @return the maxBraking
 	 */
-	public float getDesiredTimeHeadway() {
-		return desiredTimeHeadway;
+	public float getMaxBraking() {
+		return maxBraking;
 	}
 
 	/**
@@ -109,10 +114,10 @@ public class IDMCalculator implements AccelerationModelCalculator<IDMDriverParam
 	}
 
 	/**
-	 * @return the abruptness
+	 * @return the tau
 	 */
-	public float getAbruptness() {
-		return abruptness;
+	public float getTau() {
+		return tau;
 	}
 
 	/**
@@ -148,7 +153,6 @@ public class IDMCalculator implements AccelerationModelCalculator<IDMDriverParam
 	 */
 	public void setMaxAcceleration(float maxAcceleration) {
 		this.maxAcceleration = maxAcceleration;
-		init();
 	}
 
 	/**
@@ -166,10 +170,10 @@ public class IDMCalculator implements AccelerationModelCalculator<IDMDriverParam
 	}
 
 	/**
-	 * @param desiredTimeHeadway the desiredTimeHeadway to set
+	 * @param maxBraking the desiredTimeHeadway to set
 	 */
-	public void setDesiredTimeHeadway(float desiredTimeHeadway) {
-		this.desiredTimeHeadway = desiredTimeHeadway;
+	public void setMaxBraking(float maxBraking) {
+		this.maxBraking = maxBraking;
 	}
 
 	/**
@@ -177,14 +181,13 @@ public class IDMCalculator implements AccelerationModelCalculator<IDMDriverParam
 	 */
 	public void setComfortDeceleration(float comfortDeceleration) {
 		this.comfortDeceleration = comfortDeceleration;
-		init();
 	}
 
 	/**
-	 * @param abruptness the abruptness to set
+	 * @param tau the abruptness to set
 	 */
-	public void setAbruptness(float abruptness) {
-		this.abruptness = abruptness;
+	public void setTau(float tau) {
+		this.tau = tau;
 	}
 
 	/**

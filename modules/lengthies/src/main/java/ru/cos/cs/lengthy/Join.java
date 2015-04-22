@@ -17,7 +17,7 @@ public interface Join extends Lengthy {
 	
 	/**
 	 * Join specified lengthy.
-	 * @param lengthy lengthy to be joined
+	 * @param joinedLengthy lengthy to be joined
 	 */
 	public void join(RegularLengthy joinedLengthy);
 

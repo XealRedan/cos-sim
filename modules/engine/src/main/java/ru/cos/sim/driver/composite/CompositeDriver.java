@@ -7,22 +7,11 @@ import ru.cos.cs.lengthy.Fork;
 import ru.cos.cs.lengthy.Join;
 import ru.cos.cs.lengthy.Lengthy;
 import ru.cos.sim.driver.AbstractDriver;
+import ru.cos.sim.driver.composite.cases.*;
 import ru.cos.sim.driver.composite.framework.ControlCommand;
 import ru.cos.sim.driver.composite.framework.RectangleCCRange;
 import ru.cos.sim.driver.route.RouteProvider;
 import ru.cos.sim.road.link.Lane;
-import ru.cos.sim.driver.composite.cases.CarFollowingCase;
-import ru.cos.sim.driver.composite.cases.ForthcomingNode;
-import ru.cos.sim.driver.composite.cases.LaneAlignCase;
-import ru.cos.sim.driver.composite.cases.DesiredLaneChangingCase;
-import ru.cos.sim.driver.composite.cases.MandatoryLaneChangingCase;
-import ru.cos.sim.driver.composite.cases.RespectNodeCase;
-import ru.cos.sim.driver.composite.cases.RespectQueueCase;
-import ru.cos.sim.driver.composite.cases.RouterCase;
-import ru.cos.sim.driver.composite.cases.SafetyCase;
-import ru.cos.sim.driver.composite.cases.SpeedLimitCase;
-import ru.cos.sim.driver.composite.cases.TrafficLightCase;
-import ru.cos.sim.driver.composite.cases.WayJoinCase;
 import ru.cos.sim.driver.composite.framework.CCRange;
 import ru.cos.sim.utils.Hand;
 import ru.cos.sim.utils.Pair;
@@ -43,7 +32,7 @@ public class CompositeDriver extends AbstractDriver {
 	
 	// driver behavior cases
 	protected RouterCase routerCase = new RouterCase(this);
-	protected CarFollowingCase cfCase = new CarFollowingCase(this);
+	protected AbstractCarFollowingCase cfCase = new IDMCarFollowingCase(this);
 	protected LaneAlignCase laneAlignCase = new LaneAlignCase(this);
 	protected DesiredLaneChangingCase desiredLaneChangingCase = new DesiredLaneChangingCase(this);
 	protected SafetyCase safetyCase = new SafetyCase(this);
