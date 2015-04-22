@@ -27,6 +27,9 @@ public class DriverDataReader {
 		case Composite:
 			driverData = CompositeDriverReader.read(driverElement);
 			break;
+		case RtAccComposite:
+			driverData = CompositeRtAccDriverReader.read(driverElement);
+			break;
 		default: throw new XMLReaderException("Unexpected driver type "+driverType);
 		}
 		
